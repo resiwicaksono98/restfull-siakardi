@@ -19,6 +19,10 @@ const Diseases = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     freezeTableName: true,

@@ -6,6 +6,7 @@ import sequelizeStore from "connect-session-sequelize";
 import { dbPort, secretKey } from "./config/config.js";
 import db from "./config/database.js";
 import authRouter from "./app/auth/router.js";
+import deseaseRouter from "./app/desease/router.js";
 
 const app = express();
 
@@ -39,5 +40,6 @@ app.use(express.static("public"));
 
 // App
 app.use("/api", authRouter);
+app.use("/api", deseaseRouter);
 
 app.listen(dbPort, () => console.log("Server is running in port 5000"));

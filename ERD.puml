@@ -13,6 +13,7 @@ entity diseases {
 --
 * name : Varchar
 * solution : Varchar
+* image_url: Varchar
 }
 
 entity symptoms{

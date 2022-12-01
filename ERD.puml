@@ -1,0 +1,42 @@
+@startuml
+
+entity admins {
+* id : Varchar
+--
+* name : Varchar
+* email : Varchar
+* password : Varchar
+}
+
+entity diseases {
+* id : Varchar
+--
+* name : Varchar
+* solution : Varchar
+}
+
+entity symptoms{
+* id : Varchar
+--
+diseaseId: Varchar
+stem: Varchar
+leaf: Varchar
+fruit: Varchar
+root: Varchar
+}
+
+entity results {
+ * id: Varchar
+ --
+ * disease: Varchar
+ * solution : Varchar
+ * presentage: Double
+ * CreatedAt: Datetime
+ * updatedAt: Datetime
+}
+
+diseases ||--|{ symptoms
+
+
+
+@enduml

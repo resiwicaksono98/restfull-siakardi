@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import Diseases from "../../models/diseasesModel.js";
 import Symptom from "../../models/symptomModel.js";
 
@@ -31,8 +32,9 @@ export const getAllsymptom = async (req, res, next) => {
 export const getOneSymptom = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const symptom = await Symptom.findOne({
-      where: { id },
+    const idToArray = Array.from(id);
+    const symptom = await Symptom.findAll({
+      where: { id: idToArray },
       include: [
         {
           model: Diseases,

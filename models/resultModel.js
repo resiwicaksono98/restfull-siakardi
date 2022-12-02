@@ -11,7 +11,7 @@ const Result = db.define(
       allowNull: false,
       autoIncrement: true,
     },
-    diseases: {
+    disease: {
       type: DataTypes.STRING,
       allowNull: false,
     },

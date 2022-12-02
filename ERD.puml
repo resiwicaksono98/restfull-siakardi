@@ -36,7 +36,7 @@ entity results {
  * updatedAt: Datetime
 }
 
-diseases ||--|{ symptoms
+diseases ||--|| symptoms
 
 
 

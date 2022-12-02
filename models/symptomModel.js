@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js";
+import Diseases from "./diseasesModel.js";
 const { DataTypes } = Sequelize;
 
-const Sympton = db.define(
-  "symptons",
+const Symptom = db.define(
+  "symptoms",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,7 +12,7 @@ const Sympton = db.define(
       allowNull: false,
       autoIncrement: true,
     },
-    diseasesId: {
+    diseaseId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -27,5 +28,11 @@ const Sympton = db.define(
     freezeTableName: true,
   }
 );
+// Relation Desease To Symptom
+Diseases.hasMany(Symptom, { foreignKey: { name: "diseaseId" }, as: "symptom" });
+Symptom.belongsTo(Diseases, {
+  foreignKey: { name: "diseaseId" },
+  as: "disease",
+});
 
-export default Sympton;
+export default Symptom;

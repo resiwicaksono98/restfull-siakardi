@@ -1,5 +1,6 @@
 import Diseases from "../../models/diseasesModel.js";
 import fs from "fs";
+import Symptom from "../../models/symptomModel.js";
 
 export const createDisease = async (req, res, next) => {
   try {
@@ -17,7 +18,15 @@ export const createDisease = async (req, res, next) => {
 
 export const getAllDisease = async (req, res, next) => {
   try {
-    const diseases = await Diseases.findAll();
+    const diseases = await Diseases.findAll({
+      include: [
+        {
+          model: Symptom,
+          as: "symptom",
+          attributes: ["stem", "leaf", "root", "fruit"],
+        },
+      ],
+    });
     return res
       .status(200)
       .json({ message: "Get All Diseases", data: diseases });
@@ -30,6 +39,13 @@ export const getOneDiseases = async (req, res, next) => {
   try {
     const diseases = await Diseases.findOne({
       where: { name: req.params.name },
+      include: [
+        {
+          model: Symptom,
+          as: "symptom",
+          attributes: ["stem", "leaf", "root", "fruit"],
+        },
+      ],
     });
     return res
       .status(200)

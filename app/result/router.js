@@ -10,9 +10,9 @@ import {
 
 const router = express.Router();
 
-router.post("/results", adminOnly, createResult);
-router.get("/results", adminOnly, getAllResult);
-router.get("/results/:id", adminOnly, getOneResult);
+router.post("/results", createResult);
+router.get("/results", getAllResult);
+router.get("/results/:id", getOneResult);
 router.put("/results/:id", adminOnly, updateResult);
 router.delete("/results/:id", adminOnly, destroyResult);
 

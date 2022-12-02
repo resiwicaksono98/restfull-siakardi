@@ -13,9 +13,9 @@ const router = express.Router();
 // Create
 router.post("/symptoms", adminOnly, createSympton);
 // Get All
-router.get("/symptoms", adminOnly, getAllsymptom);
+router.get("/symptoms", getAllsymptom);
 // Get By Id
-router.get("/symptoms/:id", adminOnly, getOneSymptom);
+router.get("/symptoms/:id", getOneSymptom);
 // Update
 router.put("/symptoms/:id", adminOnly, updateSymptom);
 // Delete

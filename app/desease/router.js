@@ -32,8 +32,8 @@ router.post(
   multer({ storage: diskStorage }).single("image_url"),
   createDisease
 );
-router.get("/diseases", adminOnly, getAllDisease);
-router.get("/diseases/:name", adminOnly, getOneDiseases);
+router.get("/diseases", getAllDisease);
+router.get("/diseases/:name", getOneDiseases);
 router.put(
   "/diseases/:id",
   multer({ storage: diskStorage }).single("image_url"),

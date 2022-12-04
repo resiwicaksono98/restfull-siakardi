@@ -38,7 +38,7 @@ export const getAllDisease = async (req, res, next) => {
 export const getOneDiseases = async (req, res, next) => {
   try {
     const diseases = await Diseases.findOne({
-      where: { name: req.params.name },
+      where: { id: req.params.id },
       include: [
         {
           model: Symptom,

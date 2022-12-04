@@ -33,7 +33,7 @@ router.post(
   createDisease
 );
 router.get("/diseases", getAllDisease);
-router.get("/diseases/:name", getOneDiseases);
+router.get("/diseases/:id", getOneDiseases);
 router.put(
   "/diseases/:id",
   multer({ storage: diskStorage }).single("image_url"),

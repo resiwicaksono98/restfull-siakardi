@@ -36,7 +36,7 @@ app.use(
 
 app.use(
   cors({
-    redentials: true,
+    credentials: true,
     origin: ["http://localhost:3000"],
   })
 );

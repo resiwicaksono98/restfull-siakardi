@@ -23,7 +23,7 @@ export const getAllDisease = async (req, res, next) => {
         {
           model: Symptom,
           as: "symptom",
-          attributes: ["stem", "leaf", "root", "fruit"],
+          attributes: ["id", "stem", "leaf", "root", "fruit"],
         },
       ],
     });
@@ -43,7 +43,7 @@ export const getOneDiseases = async (req, res, next) => {
         {
           model: Symptom,
           as: "symptom",
-          attributes: ["stem", "leaf", "root", "fruit"],
+          attributes: ["id", "stem", "leaf", "root", "fruit"],
         },
       ],
     });

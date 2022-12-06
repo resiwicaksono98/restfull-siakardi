@@ -15,6 +15,10 @@ const Symptom = db.define(
     diseaseId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: {
+        args: true,
+        msg: "Can't be more than one",
+      },
     },
     stem: {
       type: DataTypes.STRING,
@@ -29,9 +33,13 @@ const Symptom = db.define(
   }
 );
 // Relation Desease To Symptom
-Diseases.hasMany(Symptom, { foreignKey: { name: "diseaseId" }, as: "symptom" });
+Diseases.hasOne(Symptom, {
+  foreignKey: "diseaseId",
+  onDelete: "CASCADE",
+  as: "symptom",
+});
 Symptom.belongsTo(Diseases, {
-  foreignKey: { name: "diseaseId" },
+  foreignKey: "diseaseId",
   as: "disease",
 });
 

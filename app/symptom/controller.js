@@ -32,9 +32,9 @@ export const getAllsymptom = async (req, res, next) => {
 export const getOneSymptom = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const idToArray = Array.from(id);
-    const symptom = await Symptom.findAll({
-      where: { id: idToArray },
+    // const idToArray = Array.from(id);
+    const symptom = await Symptom.findOne({
+      where: { id },
       include: [
         {
           model: Diseases,

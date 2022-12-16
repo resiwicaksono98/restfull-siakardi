@@ -12,9 +12,9 @@ import resultRouter from "./app/result/router.js";
 
 const app = express();
 
-// (async () => {
-//   await db.sync();
-// })();
+(async () => {
+  await db.sync();
+})();
 
 const sessionStore = sequelizeStore(session.Store);
 const store = new sessionStore({
